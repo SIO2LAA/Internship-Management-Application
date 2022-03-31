@@ -1,0 +1,124 @@
+.dt-buttons {
+	text-align: center !important;
+	
+}
+.dt-button {
+	border: solid rgba(0, 0, 0, 0.3) 2px !important;
+	background: transparent !important;
+	cursor: pointer !important;
+	transition: all 0.5s !important;
+	color: #222 !important;
+	font-family: 'Roboto', sans-serif !important;
+	font-size: 18px !important;
+	font-weight: bold !important;
+	opacity: 0.7 !important;
+	padding: 5px 20px !important;
+	margin:0 20px !important;
+}
+
+.dt-button:hover {
+	background-color: rgb(0, 178, 255) !important;
+	color: #fff !important;
+}
+
+td {
+    text-align: center;
+}
+
+.td-icon {
+	padding: 0px;
+}
+
+.td-icon a {
+  text-decoration: none;
+}
+
+.td-icon a:hover {
+  text-decoration: none;
+}
+
+.td-icon img {
+  vertical-align: middle;
+  display: inline-block;
+  margin: 2px;
+}
+
+th .plus {
+ 	width: 23px;
+ 	vertical-align: middle;
+}
+
+.td-icon .eye {
+ 	width: 20px
+}
+
+.td-icon .pencross {
+ 	height: 15px
+}
+
+.filtre div {
+	display: inline-block;
+    margin: 10px 20px;
+}
+
+.stage td {
+	max-width: 110px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.entreprise td {
+	max-width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.professionnel td {
+	max-width: 180px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.professeur td {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.etudiant {
+	margin-top: 30px
+}
+
+.etudiant td {
+	max-width: 220px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.dtsp-collapseAll,
+.dtsp-showAll {
+	display:none !important;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+	height: 40px !important;
+}
+
+.dataTables_filter input {
+    content: "Rechercher";
+    border: 2px solid black !important;
+}
+
+.dataTables_wrapper .dataTables_filter {
+    float: none;
+    text-align: inherit;
+}
+
+.container.mb-3.mt-3 {
+    background-color: #fff;
+    padding: 20px 0 20px 10px;
+}

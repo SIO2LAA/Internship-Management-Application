@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Stage{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+
+    {% if title == 'Modifier' %}
+        <form method="get" action={{ path('stage_modifier', {'id' : id_stage}) }}>
+    {% else %}
+        <form method="get" action={{ path('stage_ajouter') }}>
+    {% endif %}
+            <label for="entreprise">entreprise</label><select name="entreprise">
+            {% for e in liste_ent %}
+                <option value="{{ e.id }}">{{ e.nomEntreprise }}</option>
+            {% endfor %}
+            </select>
+            <input type="submit" value="entrer" />
+        </form>
+    {{ form_start(formulaire, {attr: {novalidate: 'novalidate'}}) }}
+        {% if ent_submit %}
+            {% if entreprise %}
+                <p>Aucun professionnel lié à cette entreprise.<a href="{{ path('professionnel_ajouter') }}">+</a></p>
+            {% else %}
+                <p>{{ form_label(formulaire.tuteur) }}{{ form_widget(formulaire.tuteur) }}</p>
+                <p>{{ form_label(formulaire.signataire) }}{{ form_widget(formulaire.signataire) }}</p>
+            {% endif %}
+        {% endif %}
+        <p>{{ form_label(formulaire.etudiant) }}{{ form_widget(formulaire.etudiant) }}</p>
+        <p>{{ form_label(formulaire.professeur) }}{{ form_widget(formulaire.professeur) }}</p>
+        <p>{{ form_label(formulaire.dateDebut) }}{{ form_widget(formulaire.dateDebut) }}</p>
+        <p>{{ form_label(formulaire.dateFin) }}{{ form_widget(formulaire.dateFin) }}</p>
+        <p>{{ form_label(formulaire.description) }}{{ form_widget(formulaire.description) }}</p>
+        {% if title == 'Modifier' %}
+            {% if 'ROLE_PROFESSEUR' in user.roles %}
+                <p>{{ form_label(formulaire.etat) }}{{ form_widget(formulaire.etat) }}</p>
+            {% else %}
+                <p>{% do formulaire.etat.setRendered() %}</p>
+            {% endif %}
+            <p>{{ form_label(formulaire.avisEtudiant) }}{{ form_widget(formulaire.avisEtudiant) }}</p>
+            <p>{{ form_label(formulaire.noteEtudiant) }}{{ form_widget(formulaire.noteEtudiant) }}</p>
+        {% endif %}
+        <p>{{ form_widget(formulaire.valider) }}</p>
+    {{ form_end(formulaire) }}
+
+
+
+
+
+
+{% endblock %}
+

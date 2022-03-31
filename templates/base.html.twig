@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Création de stage, navigation et supervision.">
+		<meta name="author" content="S2-SIO">
+		
+        <title>{% block title %}AppStage Template{% endblock %}</title>
+        
+        {% block icon %}
+        	<link rel="icon" href="{{ asset('img/icon.png') }}" type="image/png">
+       	{% endblock %}
+       	
+       	{% block font %}
+       	{% endblock %}
+       	
+        {% block stylesheets %}
+        	{# OUR CSS #}
+            <link rel="stylesheet" href="{{ asset('css/main.css') }}" type="text/css">
+            <link rel="stylesheet" href="{{ asset('css/menu.css') }}" type="text/css">
+        {% endblock %}
+    </head>
+    
+    <body>
+		{% block menu %}
+            {% if 'ROLE_PROFESSEUR' in user.roles %}
+                {{ include('menuAdmin.html.twig') }}
+            {% else %}
+                {{ include('menu.html.twig') }}
+            {% endif %}
+        {% endblock %}
+    
+    	{% block body %}{% endblock %}
+    
+	    {% block javascripts %}
+	    	{# JQUERY #}
+		        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+		        
+			{# OUR JS #}
+		        <script src="{{ asset('js/function.js') }}"></script>
+		        <script src="{{ asset('js/menufixed.js') }}"></script>
+	    {% endblock %}
+    </body>
+</html>

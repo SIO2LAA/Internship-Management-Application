@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EntrepriseController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>{{ title }} une entreprise</h1>
+
+    {% if title == 'Modifier' %}
+        <form method="get" action={{ path('entreprise_modifier', {'id' : id_ent}) }}>
+    {% else %}
+        <form method="get" action={{ path('entreprise_ajouter') }}>
+    {% endif %}
+            <label for="departement">département</label><select name="departement">
+            {% for d in liste_dep %}
+                <option value="{{ d.numDepartement }}">{{ d.numDepartement }}</option>
+            {% endfor %}
+            </select>
+            <input type="submit" value="entrer" />
+    </form>
+    {{ form_start(formulaire, {attr: {novalidate: 'novalidate'}}) }}
+        {% if ville %}
+            <p>{{ form_label(formulaire.ville) }}{{ form_widget(formulaire.ville) }}</p>
+        {% else %}
+	    {% do formulaire.ville.setRendered %}
+        {% endif %}
+        <p>{{ form_label(formulaire.nomEntreprise) }}{{ form_widget(formulaire.nomEntreprise) }}</p>
+        <p>{{ form_label(formulaire.adresseEntreprise) }}{{ form_widget(formulaire.adresseEntreprise) }}</p>
+        <p>{{ form_label(formulaire.complementAdresseEntreprise) }}{{ form_widget(formulaire.complementAdresseEntreprise) }}</p>
+        <p>{{ form_label(formulaire.mailEntreprise) }}{{ form_widget(formulaire.mailEntreprise) }}</p>
+        <p>{{ form_label(formulaire.telephoneEntreprise) }}{{ form_widget(formulaire.telephoneEntreprise) }}</p>
+        <p>{{ form_label(formulaire.specialite) }}{{ form_widget(formulaire.specialite) }}</p>
+        <p>{{ form_widget(formulaire.bouton) }}</p>
+    {{ form_end(formulaire) }}
+
+
+{{ form_errors(formulaire.nomEntreprise) }}
+{{ form_errors(formulaire.adresseEntreprise) }}
+{{ form_errors(formulaire.complementAdresseEntreprise) }}
+{{ form_errors(formulaire.mailEntreprise) }}
+{{ form_errors(formulaire.telephoneEntreprise) }}
+
+
+</div>
+{% endblock %}
+

@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300&display=swap');
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ 
+ body, html {
+	 height: 100%;
+	 width: 100%;
+	 background-color: #e5e5e5;
+}
+
+body {
+  	font-family: 'Lato', sans-serif;
+  	font-weight: 400;
+  	font-size: 16px;
+  	line-height: 1.7;
+  	color: #222;
+}
+
+.title {
+	margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+.title p {
+	font-size: 18px;
+}
+
+#principal{
+	margin: 70px 100px;
+}
+
+.principalfixe{
+	margin-top: 138px !important;
+}
+
+.header {
+  	height: 250px;
+  	background-image: 
+		linear-gradient(to right bottom,
+		rgba(119, 0, 0, 0.4),
+		rgba(0, 2, 125, 0.5)),
+    	url('https://www.universite-paris-saclay.fr/sites/default/files/2021-02/informatique.jpg');
+	background-size: cover;
+  	background-position: top;
+  	position: relative;
+}
+
+.liaison {
+  	position: relative;
+	top: 250px;
+	height: 10px;
+  	background-color: #222;
+}
+
+.brand-box {
+  	position: absolute;
+  	top: 40px;
+  	left: 40px;
+}
+
+.brand { 
+	font-size: 20px;
+	color: #fff;
+ }
+
+.text-box {
+  	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+  	text-align: center;
+}
+
+.heading-primary {
+  	color: #fff;
+  	text-transform: uppercase;
+
+  	backface-visibility: hidden;
+  	margin-bottom: 30px;
+}
+
+.heading-primary-main {
+  	display: block;
+  	font-size: 26px;
+  	font-weight: 400;
+  	letter-spacing: 5px;
+}
+
+.heading-primary-sub {
+  	display: block;
+  	font-size: 18px;
+  	font-weight: 700;
+  	letter-spacing: 7.4px;
+}
+
+.btn-header:link,
+.btn-header:visited {
+  	text-transform: uppercase;
+  	text-decoration: none;
+  	padding: 10px 20px;
+  	display: inline-block;
+  	border-radius: 100px;
+  	transition: all .2s;
+  	position: relative;
+}
+
+.btn-header:hover {
+  	transform: translateY(-3px);
+  	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-header:active {
+  	transform: translateY(-1px);
+  	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-header {
+  	background-color: rgba(255, 255, 255, 0.4);
+  	border: 2px solid rgba(255, 255, 255, 0.4);;
+  	color: #fff;
+	font-size: 14px;
+	margin: 0 10px;
+}
+ 
+.txtcenter {
+	text-align: center;	
+}
+
+.size-icon-user {
+	width: 100px;
+}
+
+h3 {
+	text-align: left;
+	font-size: 30px;
+}
+

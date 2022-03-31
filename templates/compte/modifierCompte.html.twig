@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UtilisateurController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+
+{% if 'ROLE_PROFESSEUR' in user.roles %}
+    {{ form(formulaire) }}
+{% else %}
+    <form method="get" action={{ path('modifier_compte') }}>
+        <label for="departement">département</label><select name="departement">
+        {% for d in liste_dep %}
+            <option value="{{ d.numDepartement }}">{{ d.numDepartement }}</option>
+        {% endfor %}
+        </select>
+        <input type="submit" value="entrer" />
+    </form>
+    {{ form_start(formulaire, {attr: {novalidate: 'novalidate'}}) }}
+        {% if ville %}
+            <p>{{ form_label(formulaire.ville) }}{{ form_widget(formulaire.ville) }}</p>
+        {% else %}
+            {{ form_widget(formulaire.ville, { 'attr': {'class': 'hidden-row'}}) }}
+        {% endif %}
+        <p>{{ form_label(formulaire.nom) }}{{ form_widget(formulaire.nom) }}</p>
+        <p>{{ form_label(formulaire.prenom) }}{{ form_widget(formulaire.prenom) }}</p>
+        <p>{{ form_label(formulaire.mail) }}{{ form_widget(formulaire.mail) }}</p>
+        <p>{{ form_label(formulaire.adresse) }}{{ form_widget(formulaire.adresse) }}</p>
+        <p>{{ form_label(formulaire.complementAdresse) }}{{ form_widget(formulaire.complementAdresse) }}</p>
+        <p>{{ form_label(formulaire.telephone) }}{{ form_widget(formulaire.telephone) }}</p>
+        <p>{{ form_label(formulaire.dateNaissance) }}{{ form_widget(formulaire.dateNaissance) }}</p>
+        <p>{{ form_label(formulaire.login.identifiant) }}{{ form_widget(formulaire.login.identifiant) }}</p>
+        <p>{{ form_widget(formulaire.valider) }}</p>
+    {{ form_end(formulaire) }}
+{% endif %}
+    <a href="{{ path('utilisateur_modifier_password', {'id': id }) }}">Changer le Mot de Passe</a>
+</div>
+{% endblock %}

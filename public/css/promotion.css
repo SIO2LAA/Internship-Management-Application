@@ -1,0 +1,123 @@
+#principal {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 70px;
+}
+
+.principalfixe{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 138px !important;
+}
+
+form {
+	padding: 40px;
+	width: 320px;
+	border-radius: 10px;
+	border: 2px solid rgba(255,255,255,0.1);
+	box-shadow: 0 0 40px rgba(8,7,16,0.4);
+}
+
+.connex-input {
+	margin: 20px 0;
+}
+
+.connex-input label {
+	display: block;
+}
+
+.connex-input input {
+	display: block;
+	height: 40px;
+	width: 100%;
+	background-color: #e8e8e8;
+	border-radius: 3px;
+	margin-top: 5px;
+	padding: 10px;
+	font-size: 14px;
+	font-weight: 300;
+	border: 2px solid #e8e8e8;;
+}
+
+.connex-input input:active {
+
+	border: 2px solid #fff;
+}
+
+.btn-promo-glob {
+	display: flex;
+	justify-content: center;
+	margin: 30px;
+}
+
+#promotion_promo_liste {
+	margin: 20px;
+	width: 100%;
+	padding: 5px
+}
+
+#promotion_bouton_ajout {
+	margin: 20px;
+	width: 100%;
+	padding: 5px;
+	border-radius: 10px;
+	border: 2px solid rgba(108,99,255,0.7);
+	transition-duration: 0.4s;
+}
+
+#promotion_bouton_ajout:hover {
+	background-color: #6c63ff;
+	color: white;
+	border-radius: 10px;
+	border: 2px solid rgba(108,99,255,1);
+}
+
+#promotion_bouton_modif {
+	margin: 20px;
+	width: 100%;
+	padding: 5px;
+	border-radius: 10px;
+	border: 2px solid rgba(108,99,255,0.7);
+	transition-duration: 0.4s;
+}
+
+#promotion_bouton_modif:hover {
+	background-color: #6c63ff;
+	color: white;
+	border-radius: 10px;
+	border: 2px solid rgba(108,99,255,1);
+}
+
+#promotion_bouton_supp {
+	margin: 20px;
+	width: 100%;
+	padding: 5px;
+	border-radius: 10px;
+	border: 2px solid rgba(108,99,255,0.7);
+	transition-duration: 0.4s;
+}
+
+#promotion_bouton_supp:hover {
+	background-color: #6c63ff;
+	color: white;
+	border-radius: 10px;
+	border: 2px solid rgba(108,99,255,1);
+}
+
+#promotion_bouton_return {
+	margin: 20px;
+	width: 100%;
+	padding: 5px;
+	border-radius: 10px;
+	border: 2px solid rgba(108,99,255,0.7);
+	transition-duration: 0.4s;
+}
+
+#promotion_bouton_return:hover {
+	background-color: #6c63ff;
+	color: white;
+	border-radius: 10px;
+	border: 2px solid rgba(108,99,255,1);
+}

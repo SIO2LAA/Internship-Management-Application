@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+		{{ parent() }}
+        
+	{# OUR CSS #}
+		<link rel="stylesheet" href="{{ asset('css/afficher.css') }}" type="text/css">
+{% endblock %}
+
+{% block title %}Professionnel - {% endblock %}
+
+{% block body %}
+
+	<div id="principal">
+		<div class="partie">
+			<h3>Professionnel</h3>
+			
+			<span>
+				<u>Nom :</u> {{ professionnel.nomProfessionnel }}
+			</span>
+			
+			<span>
+				<u>Prénom :</u> {{ professionnel.prenomProfessionnel }}
+			</span>
+			
+			<span>
+				<u>Profession :</u> {{ professionnel.professionProfessionnel }}
+			</span>
+			
+			<span>
+				<u>Téléphone :</u>
+				{% if professionnel.telephoneProfessionnel %}
+	 				{{ professionnel.telephoneProfessionnel }}
+	 			{% else %}
+	 				<i>Non-renseigné</i>
+				{% endif %}
+			</span>
+			
+			<span>
+				<u>Mail :</u>
+				{% if professionnel.mailProfessionnel %}
+					{{ professionnel.mailProfessionnel }}
+				{% else %}
+	 				<i>Non-renseigné</i>
+				{% endif %}
+			</span>
+		</div>
+	</div>
+
+{% endblock %}

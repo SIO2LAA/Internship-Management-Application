@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}     
+	{# BASE CSS #}
+        {{ parent() }}
+
+	{# CSS DATATABLE / BOOTSTRAP #}
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/searchpanes/1.4.0/css/searchPanes.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.3/css/select.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+            
+	{# OUR CSS #}
+        <link rel="stylesheet" href="{{ asset('css/liste.css') }}" type="text/css" >
+{% endblock %}
+
+{% block title %}Professionnel{% endblock %}
+
+{% block body %}
+	<div id="principal">
+	    <div class="title">
+   			<h1 class="txtcenter">Les professionnels</h1>
+    		<p>Liste non-exhaustive des professionnels des entreprises renseignées pour les stages des étudiants.</p>
+		</div>
+		
+		<div class="container mb-3 mt-3">
+			<table class="table table-striped table-bored mydatatable professionnel" style="width: 100%">
+                <thead>
+                    <tr>
+						<th>Nom</th>
+						<th>Prénom</th>
+						<th>Profession</th>
+						<th>Téléphone</th>
+						<th>Mail</th>
+						<th>
+							<a href="{{ path('professionnel_ajouter') }}">
+								<img class="plus" src="{{ asset('img/ajouter_b.svg')}}" type="submit" name="Ajouter"></img>
+							</a>
+						</th>
+                    </tr>
+                </thead>
+                <tbody>
+					{% for l in liste_professionnel %}			
+						<tr>
+							<td>{{ l.nomProfessionnel }}</td>
+							<td>{{ l.prenomProfessionnel}}</td>
+							<td>{{ l.professionProfessionnel }}</td>
+							<td>{{ l.telephoneProfessionnel }}</td>
+							<td>
+								<a href="mailto:{{ l.mailProfessionnel }}">
+									{{ l.mailProfessionnel }}
+								</a>
+							</td>
+				  
+							<td class="td-icon">
+							    <a href="{{ path('professionnel_afficher', {'id': l.id }) }}">
+                                	<img class="eye" src="{{ asset('img/afficher.svg')}}" type="submit" name="Afficher"></img>
+                                </a>
+                     
+								{% if 'ROLE_PROFESSEUR' in user.roles %}
+									<a href="{{ path('professionnel_modifier', {'id': l.id }) }}">
+										<img class="pencross" src="{{ asset('img/modifier.svg')}}" type="submit" name="Modifier"></img>
+									</a>
+									
+									<a href="{{ path('professionnel_supprimer', {'id': l.id }) }}">
+										<img class="pencross" src="{{ asset('img/supprimer.svg')}}" type="submit" name="Supprimer" onclick="confirmSuppr()"></img>
+									</a>
+								{% endif %}
+							</td>
+			  			</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	{# BASE JS #}
+	    {{ parent() }}
+	    
+	{# DATATABLE / BOOTSTRAP & POPPER #}
+	    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+	    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+	    <script src="https://cdn.datatables.net/searchpanes/1.4.0/js/dataTables.searchPanes.min.js"></script>
+	    <script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
+	    <script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+	    
+	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+	   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+	   	
+	   	
+	{# OUR JS #}
+	    <script src="{{ asset('js/datatableConfig/datatableConfigPro.js') }}"></script>
+{% endblock %}
+

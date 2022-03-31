@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+        {{ parent() }}
+        <link href="{{ asset('css/promotion.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block title %}Promotions - Stage SIO{% endblock %}
+
+{% block body %}
+		<div class="principal">
+		    {{ form_start(formulaire) }}
+		    	{{ form_widget(formulaire.promo_liste) }}
+		    	<div class="btn-promo-glob">
+		    		{{ form_widget(formulaire.bouton_ajout)}}
+		    		{{ form_widget(formulaire.bouton_modif)}}
+		    		{{ form_widget(formulaire.bouton_supp)}}
+		    	</div>
+		    	<div class="btn-promo-glob">
+		    		{{ form_widget(formulaire.bouton_return)}}
+		    	</div>
+		    	
+			{{ form_end(formulaire) }}
+		</div>
+{% endblock %} 

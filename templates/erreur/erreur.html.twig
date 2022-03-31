@@ -1,0 +1,12 @@
+{# templates/bundles/TwigBundle/Exception/error403.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Que fais tu ici ?</h1>
+
+    <p>
+        Tu n'as pas accès à cette ressource !
+        <br>
+        Je t'invite à te connecter avec un compte ayant les droits suffisants ici : <a href="{{ path('app_login') }}">Connexion</a>.
+    </p>
+{% endblock %}

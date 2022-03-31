@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+        {{ parent() }}
+        <link href="{{ asset('css/afficher.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block title %}Etudiant{% endblock %}
+
+{% block body %}
+
+	<div class="principal">
+
+	{% if type == 'Etudiant' %}
+		Etudiant<br><br>
+
+			Nom : {{ utilisateur.nom }}<br>
+
+			Prénom : {{ utilisateur.prenom }}<br>
+
+			mail : <A HREF="mailto:{{ utilisateur.mail }}">{{ utilisateur.mail }}</A><br>
+
+		{% if utilisateur.adresse %}
+			Adresse : {{ utilisateur.adresse }}<br>
+		{% else %}
+			Adresse : Aucune Adresse<br>
+		{% endif %}
+
+		{% if utilisateur.telephone %}
+			Téléphone : {{ utilisateur.telephone }}<br><br>
+		{% else %}
+			Téléphone : Aucun numéro de téléphone<br><br>
+		{% endif %}
+
+		Login<br>
+
+			Identifiant : {{ utilisateur.login.identifiant }}<br><br>
+
+
+		Ville<br>
+		{% if utilisateur.ville %}
+			Nom : {{ utilisateur.ville.nomVille }}<br>
+
+			Code Postal : {{ utilisateur.ville.codePostal }}<br>
+
+			Numéro de Département : {{ utilisateur.ville.numDepartement }}<br><br>
+		{% else %}
+			Aucune Ville<br><br>
+		{% endif %}
+
+		Promotion<br>
+
+			Nom : {{ utilisateur.promotion.nom }}<br><br>
+
+		Specialite<br>
+		{% if utilisateur.specialite %}
+			Specialite : {{ utilisateur.specialite.specialite }}<br><br>
+		{% else %}
+			Aucune Spécialité<br><br>
+		{% endif %}
+	{% elseif type == 'Professeur' %}
+		Professeur<br><br>
+
+		Nom : {{ utilisateur.nom }}<br>
+
+		Prénom : {{ utilisateur.prenom }}<br>
+
+		mail : <A HREF="mailto:{{ utilisateur.mail }}">{{ utilisateur.mail }}</A><br><br>
+
+		Login<br>
+
+		Identifiant : {{ utilisateur.login.identifiant }}
+	{% else %}
+		Erreur !!!
+	{% endif %}
+
+	</div>
+
+{% endblock %}
+

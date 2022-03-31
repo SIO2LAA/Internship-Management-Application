@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+		{{ parent() }}
+        
+	{# OUR CSS #}
+		<link rel="stylesheet" href="{{ asset('css/afficher.css') }}" type="text/css">
+{% endblock %}
+
+{% block title %}Entreprise - {% endblock %}
+
+{% block body %}
+
+		<div id="principal">
+		<div class="partie">
+			<h3>Professionnel</h3>
+			
+			<span>
+				<u>Nom :</u> {{ entreprise.nomEntreprise }}
+			</span>
+			
+			<span>
+				<u>Adresse :</u> 	{{ entreprise.adresseEntreprise }},
+									{% if entreprise.complementAdresseEntreprise %}
+	 									{{ entreprise.complementAdresseEntreprise }}, 
+	 								{% endif %}
+	 								{{ entreprise.ville.codePostal }} {{ entreprise.ville.nomVille }}
+			</span>
+
+			
+			<span>
+				<u>Téléphone :</u>
+				{% if entreprise.telephoneEntreprise %}
+	 				{{ entreprise.telephoneEntreprise }}
+	 			{% else %}
+	 				<i>Non-renseigné</i>
+				{% endif %}
+			</span>
+			
+			<span>
+				<u>Mail :</u>
+				{% if entreprise.mailEntreprise %}
+					{{ entreprise.mailEntreprise }}
+				{% else %}
+	 				<i>Non-renseigné</i>
+				{% endif %}
+			</span>
+			
+			<span>
+				<u>Specialite :</u> {{ entreprise.specialite.specialite }}
+			</span>
+			
+			<span>
+				<u>Professionnels :</u> {{ entreprise.specialite.specialite }}
+			</span>
+		</div>
+	</div>
+
+{% endblock %}
+

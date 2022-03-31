@@ -1,0 +1,14 @@
+
+.partie {
+	margin: 30px 0;
+}
+
+.partie span {
+	display: block;
+	margin: 10px;
+}
+
+.generate {
+	float: left;
+	margin: 10px;
+}

@@ -1,0 +1,61 @@
+security:
+    # https://symfony.com/doc/current/security/authenticator_manager.html
+    enable_authenticator_manager: true
+    # https://symfony.com/doc/current/security.html#c-hashing-passwords
+    password_hashers:
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'bcrypt'
+        App\Entity\UserLogin:
+            algorithm: bcrypt
+
+    # Redirection sur la page expliquant l'erreur
+    access_denied_url: /erreur
+
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        # used to reload user from session & other features (e.g. switch_user)
+        app_user_provider:
+            entity:
+                class: App\Entity\UserLogin
+                property: identifiant
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            lazy: true
+            provider: app_user_provider
+            custom_authenticator: App\Security\ConnexionFormAthentificatorAuthenticator
+            logout:
+                path: app_logout
+                # where to redirect after logout
+                # target: app_any_route
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+         - { path: ^/accueil, roles: [ROLE_PROFESSEUR, ROLE_ETUDIANT] }
+         - { path: ^/utilisateur, roles: ROLE_PROFESSEUR }
+         - { path: ^/promotion, roles: ROLE_PROFESSEUR }
+         - { path: ^/compte, roles: [ROLE_PROFESSEUR, ROLE_ETUDIANT] }
+         - { path: ^/stage, roles: [ROLE_PROFESSEUR, ROLE_ETUDIANT] }
+         - { path: ^/stage/afficher, roles: [ROLE_PROFESSEUR, ROLE_ETUDIANT] }
+         - { path: ^/stage/ajouter, roles: [ROLE_PROFESSEUR, ROLE_ETUDIANT] }
+         - { path: ^/stage/modifier, roles: [ROLE_PROFESSEUR, ROLE_ETUDIANT] }
+         - { path: ^/stage/conv, roles: [ROLE_PROFESSEUR] }
+         - { path: ^/stage/lettre, roles: [ROLE_PROFESSEUR] }
+         - { path: ^/entreprise, roles: [ROLE_PROFESSEUR, ROLE_ETUDIANT] }
+         - { path: ^/entreprise/afficher, roles: [ROLE_PROFESSEUR, ROLE_ETUDIANT] }
+         - { path: ^/entreprise/ajouter, roles: [ROLE_PROFESSEUR, ROLE_ETUDIANT] }
+         - { path: ^/entreprise/modifier, roles: ROLE_PROFESSEUR }
+         - { path: ^/entreprise/professionnel, roles: [ROLE_PROFESSEUR, ROLE_ETUDIANT] }
+         - { path: ^/entreprise/professionnel/ajouter, roles: [ROLE_PROFESSEUR, ROLE_ETUDIANT] }
+         - { path: ^/entreprise/professionel/modifier, roles: ROLE_PROFESSEUR }
+         
+         
+        

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Connexion{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+           
+        {% block icon %}
+        	<link href="{{ asset('img/icon.png') }}" type="image/png" rel="icon" >
+       	{% endblock %}
+       	
+        {% block stylesheets %}
+			<link href="{{ asset('css/main.css') }}" type="text/css" rel="stylesheet" />
+			<link href="{{ asset('css/login.css') }}" type="text/css" rel="stylesheet" />
+        {% endblock %}
+
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
+    </head>
+    <body>
+		<div class="principal-connex">
+			<form method="post">
+			
+				{# .messageKey|trans(error.messageData, 'security') #}
+			
+				<h1 class="txtcenter">Se connecter</h1>
+				
+				{% if error %}
+					<div class="alert alert-danger">{{ error }}</div>
+				{% endif %}
+				<div class="connex-input">
+					<label for="inputIdentifiant">Identifiant</label>
+					<input type="text" value="{{ last_username }}" name="identifiant" id="inputIdentifiant" class="form-control" placeholder="Identifiant" autocomplete="username" required autofocus>
+				</div>
+				
+				<div class="connex-input">
+					<label for="inputPassword">Mot de passe</label>
+					<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" autocomplete="current-password" required>
+				</div>
+				
+				<div class="btn-connex-glob">
+					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+					<button class="btn-connex" type="submit">Connexion</button>
+				</div>
+			
+				  {#
+					<!--Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.-->
+					<!--See https://symfony.com/doc/current/security/remember_me.html-->
+			
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" name="_remember_me"> Se souvenir de moi
+						</label>
+					</div>
+				   #}
+			
+			</form>
+		</div>
+    </body>
+</html>

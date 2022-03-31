@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CompteController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .size-icon-user {width: 90px;}
+.liner {
+	 display: flex;
+	 align-items: flex-start;
+	 text-align: left;
+}
+ .liner:after {
+	 content: '';
+	 flex-grow: 1;
+	 height: 3px;
+	 background: #FFDA8F;
+	 min-width: 20px;
+	 margin: auto;
+	 margin-left: 20px;
+}
+
+
+</style>
+
+<div class="example-wrapper">
+    {% if app.user %}
+        <div class=>
+            Vous êtes connecté avec {{ app.user.username }}, <a href="{{ path('app_logout') }}">Se déconnecter ?</a>
+        </div>
+    {% endif %}
+    <h1>Informations Personnelles </h1>
+    <img class="size-icon-user" src="{{ asset('img/userIcon.svg') }}" alt="User Icon !" />
+    <p>
+        Vos Informations :
+    </p>
+    <br>
+    <p>
+        Nom : {{ nom }}
+        <h1 class="liner"></h1>
+        Prénom : {{ prenom }}
+        <h1 class="liner"></h1>
+        Mail : {{ mail }}
+        <h1 class="liner"></h1>
+        {% if type == 'etudiant' %}
+            {% if adresse %}
+                Adresse : {{ adresse }}
+                <h1 class="liner"></h1>
+            {% else %}
+                Adresse : Aucune adresse
+                <h1 class="liner"></h1>
+            {% endif %}
+            {% if complementAdresse %}
+                Complément d'adresse : {{ complementAdresse }}
+                <h1 class="liner"></h1>
+            {% else %}
+                Complément d'adresse : Aucune information
+                <h1 class="liner"></h1>
+            {% endif %}
+            {% if telephone %}
+                Téléphone : {{ telephone }}
+                <h1 class="liner"></h1>
+            {% else %}
+                Téléphone : Aucun numéro de téléphone
+                <h1 class="liner"></h1>
+            {% endif %}
+            {% if dateNaissance %}
+                Date de Naissance : {{ dateNaissance }}
+                <h1 class="liner"></h1>
+            {% else %}
+                Date de Naissance : Aucune date de naissance
+                <h1 class="liner"></h1>
+            {% endif %}
+            {% if ville %}
+                Ville : {{ ville.getNomVille() }} | {{ ville.getCodePostal() }}
+                <h1 class="liner"></h1>
+            {% else %}
+                Ville : Auncune ville
+                <h1 class="liner"></h1>
+            {% endif %}
+        {% endif %}
+    </p>
+
+    <br>
+    <a href="{{ path('modifier_compte') }}">Modifier mon compte</a>
+
+</div>
+{% endblock %}

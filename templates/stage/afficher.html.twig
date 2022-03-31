@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+        {{ parent() }}
+        <link href="{{ asset('css/afficher.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block title %}Stage - {{ stage.etudiant.prenom }} {{ stage.etudiant.nom }}{% endblock %}
+
+{% block body %}
+
+	<div id="principal">
+	
+		<div class="partie">
+			<h3>Etudiant</h3>
+			
+			<span>
+				<u>Nom :</u> {{ stage.etudiant.nom }}
+			</span>
+			
+			<span>
+				<u>Prénom :</u> {{ stage.etudiant.prenom }}
+			</span>
+			
+			<span>
+				<u>Promotion :</u> {{ stage.etudiant.promotion.nom }}
+			</span>
+			
+			<span>
+				<u>Professeur référent :</u> {{ stage.professeur.nom }}
+			</span>
+		</div>
+	
+		<hr>
+
+		<div class="partie">
+			<h3>Entreprise</h3>
+			
+			<span>
+				<u>Nom :</u> {{ stage.entreprise.nomEntreprise }}
+			</span>
+			
+			<span>
+				<u>Tuteur :</u> {{ stage.tuteur.nomProfessionnel }}
+			</span>
+			
+			<span>
+				<u>Signataire :</u> {{ stage.signataire.nomProfessionnel }}
+			</span>
+		</div>
+
+		<hr>
+
+		<div class="partie">
+			<h3>Stage</h3>
+			
+			<span>
+				<u>Etat :</u> {{ stage.etat.libelle }}
+			</span>
+			
+			<span>
+				<u>Description :</u> {{ stage.description }}
+			</span>
+			
+			<span>
+				<u>Date de début :</u> {{ stage.dateDebut|date('Y-m-d') }}
+			</span>
+			
+			<span>
+				<u>Date de fin :</u> {{ stage.dateFin|date('Y-m-d') }}
+			</span>
+			
+			<span>
+				<u>Avis :</u> {{ stage.avisEtudiant }}
+			</span>
+			
+			<span>
+				<u>Note :</u> {{ stage.noteEtudiant }}
+			</span>
+		</div>
+		
+		<div class="">
+			<a href="{{ path('stage_conv', {'id': stage.idStage }) }}">Générer une convention</a>
+		</div>
+
+		<div class="">
+			<a href="{{ path('stage_lettre', {'id': stage.idStage }) }}">Générer une lettre</a>
+		</div>
+	</div>
+
+{% endblock %}
+
