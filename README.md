@@ -30,6 +30,7 @@ Cette application permet aux utilisateurs (professeurs et étudiants) de répert
  sudo apt install php
  sudo apt install php-pgsql
  sudo apt install php-xml
+ sudo apt install composer
  echo 'deb [trusted=yes] https://repo.symfony.com/apt/ /' | sudo tee /etc/apt/sources.list.d/symfony-cli.list
  sudo apt update
  sudo apt install symfony-cli
