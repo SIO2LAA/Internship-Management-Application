@@ -61,6 +61,7 @@ Cette application permet aux utilisateurs (professeurs et étudiants) de répert
 
 2. Ouvrez un **Terminal** ici et tapez :
      ```bash
+     composer update
      symfony server:start
      ```
 3. Rendez vous sur un navigateur et accéder à localhost
