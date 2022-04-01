@@ -61,12 +61,13 @@ Cette application permet aux utilisateurs (professeurs et étudiants) de répert
 
 2. Ouvrez un **Terminal** ici et tapez :
      ```bash
-     symfony server:start
-     ```
-     ```bash
      composer update
      ```
-    
+     
+     ```bash
+     symfony server:start
+     ```
+     
 3. Rendez vous sur un navigateur et accéder à localhost
 <img src="https://user-images.githubusercontent.com/101253389/158605649-82cba167-1929-48a0-8cfc-2869467650c1.PNG" align="center" alt="CommandeStart" width="90%" 
      height="auto">
