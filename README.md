@@ -5,7 +5,6 @@
 L'application de gestion de stages est une application Web utilisant **Symfony**.
 Ce projet a été réalisé dans le cadre d'un travail en groupe durant notre formation BTS SIO Option SLAM.
 
-// REFAIRE MIEUX
 Cette application permet aux utilisateurs (professeurs et étudiants) de répertorier et de gérer les stages.
 
 <img src="https://user-images.githubusercontent.com/101253389/157456354-9f07beac-dd1b-41ac-9ea7-895392f17a70.png" align="center"
